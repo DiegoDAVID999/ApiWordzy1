@@ -72,7 +72,12 @@ export default class Server {
         
         // Configurar CORS
         const corsOptions = {
-            origin: "https://apiwordzy1.onrender.com",  // Permite solicitudes solo desde tu dominio
+            origin: [
+                "https://apiwordzy1.onrender.com",
+                "http://localhost:56072",  // o el puerto que use Flutter web en Chrome
+                "http://localhost:3000",  // otro puerto común
+              ],
+                // Permite solicitudes solo desde tu dominio
             methods: "GET,POST,PUT,DELETE",  // Métodos permitidos
             allowedHeaders: "Content-Type,Authorization",  // Encabezados permitidos
         };
