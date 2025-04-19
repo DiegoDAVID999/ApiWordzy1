@@ -71,16 +71,12 @@ export default class Server {
         this.app.use(express.json());
         
         // Configurar CORS
+        // Configurar CORS para permitir cualquier origen
         const corsOptions = {
-            origin: [
-                "https://apiwordzy1.onrender.com",
-                "http://localhost:56072",  // o el puerto que use Flutter web en Chrome
-                "http://localhost:3000",  // otro puerto común
-              ],
-                // Permite solicitudes solo desde tu dominio
-            methods: "GET,POST,PUT,DELETE",  // Métodos permitidos
-            allowedHeaders: "Content-Type,Authorization",  // Encabezados permitidos
-        };
+            origin: "*",  // Permite solicitudes desde cualquier origen
+            methods: "GET,POST,PUT,DELETE",
+            allowedHeaders: "Content-Type,Authorization",
+            };
         this.app.use(cors(corsOptions));  // Aplica CORS con las opciones configuradas
 
         // Rutas
